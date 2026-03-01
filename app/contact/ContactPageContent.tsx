@@ -15,24 +15,11 @@ export default function ContactPageContent() {
     const data = new FormData(form);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.get("name"),
-          email: data.get("email"),
-          phone: data.get("phone"),
-          service: data.get("service"),
-          message: data.get("message"),
-        }),
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
+      // TODO: Replace with your backend API endpoint or email service
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("Form submitted:", Object.fromEntries(data));
+      setStatus("success");
+      form.reset();
     } catch {
       setStatus("error");
     }
